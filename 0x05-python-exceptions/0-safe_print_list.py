@@ -4,11 +4,11 @@ def safe_print_list(my_list=[], x=0):
     """Print x elememts of a list.
 
     Args:
-        my_list (list): The list  from where we will print elements.
+        my_list (list): The list from which we  print elements from.
         x (int): The number of elements of my_list to print.
 
     Returns:
-        The number of Printed elements.
+        The number of elements to be printed.
     """
     ret = 0
     for i in range(x):
@@ -19,4 +19,3 @@ def safe_print_list(my_list=[], x=0):
             break
     print("")
     return (ret)
-
