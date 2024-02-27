@@ -1,3 +1,4 @@
+7-add_item.py
 #!/usr/bin/python3
 """Defining a class Student."""
 
@@ -18,7 +19,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """Getting a dictionary representation
+        """Getting a dictionary representation of the Student.
 
         If attrs is a list of strings, represents only those attributes
         included in the list.
