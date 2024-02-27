@@ -1,4 +1,3 @@
-7-add_item.py
 #!/usr/bin/python3
 """Defining a class Student."""
 
