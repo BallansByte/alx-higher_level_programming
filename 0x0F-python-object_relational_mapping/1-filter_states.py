@@ -1,18 +1,13 @@
 #!/usr/bin/python3
-
 """
-Script: 1-filter_states.py
-Connects to a MySQL database and retrieves all states with names starting with 'N'.
-Sorts the results by state ID in ascending order.
+Lists all states with a name starting with N (upper N) from the database
+hbtn_0e_0_usa sorted in ascending order by states.id
 """
-
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} mysql_username mysql_password db_name".format(sys.argv[0]))
-        sys.exit(1)
 
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
@@ -32,12 +27,11 @@ if __name__ == "__main__":
         sys.exit(1)
 
     cur = conn.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' \
+                ORDER BY states.id ASC")
+    rows = cur.fetchall()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC")
-
-     rows = cur.fetchall()
-
-     for row in rows:
+    for row in rows:
         print(row)
 
     cur.close()
