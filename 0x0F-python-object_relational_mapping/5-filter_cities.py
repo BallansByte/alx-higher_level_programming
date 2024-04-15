@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Takeing the name of a state
+Taking the name of a state
 as an argument and listing all cities of that
 state, using the database `hbtn_0e_4_usa`.
 """
