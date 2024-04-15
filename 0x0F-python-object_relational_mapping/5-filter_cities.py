@@ -1,11 +1,40 @@
 #!/usr/bin/python3
-"""Starting a linking class to table in database
 """
-import sys
-from model_state import Base, State
+Ttakeing the name of a state
+as an argument and listing all cities of that
+state, using the database `hbtn_0e_4_usa`.
+"""
 
-from sqlalchemy import (create_engine)
+import MySQLdb as db
+from sys import argv
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    """
+    Access to the database and get the cities
+    from the database.
+    """
+
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
+
+    with db_connect.cursor() as db_cursor:
+        db_cursor.execute("""
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
+        """, {
+            'state_name': argv[4]
+        })
+        rows_selected = db_cursor.fetchall()
+
+    if rows_selected is not None:
+        print(", ".join([row[1] for row in rows_selected]))
