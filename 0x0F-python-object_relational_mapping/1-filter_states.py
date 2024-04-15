@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 # Listing all states with a name starting with N from the database .
 # Usage: ./1-filter_states.py <mysql username> \
