@@ -1,3 +1,15 @@
 #!/bin/bash
-# script to post data (url-encoded) to a server
-curl -s -d "email=hr@holbertonschool.com&subject=I%20will%20always%20be%20here%20for%20PLD" -X POST "$1"
+
+# Check if URL is provided as an argument
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <URL>"
+    exit 1
+fi
+
+# Assign the URL from the first argument
+URL=$1
+
+# Use curl to send a POST request with variables email and subject
+curl -s -X POST $URL \
+    -d "email=test@gmail.com" \
+    -d "subject=I will always be here for PLD"
