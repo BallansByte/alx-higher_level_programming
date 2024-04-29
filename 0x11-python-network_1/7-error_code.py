@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This script takes a URL as a command line argument, sends a HTTP request to that URL,
-and prints the body of the response. If the response has a status code of 400 or higher,
+script takes a URL as a command line argument,sends a HTTP request to URL,
+and prints the response. If the response has a status code of 400+,
 it prints an error message with the status code.
 """
 
