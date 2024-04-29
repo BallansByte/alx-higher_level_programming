@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#Listing 10 recent commits on a GitHub repository.
-
+"""
+Listing 10 recent commits on a GitHub repository.
+"""
 import sys
 import requests
 
