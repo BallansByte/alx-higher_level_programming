@@ -1,3 +1,8 @@
 #!/bin/bash
-# script to post data (url-encoded) to a server
-curl -s -d "email=hr@holbertonschool.com&subject=I%20will%20always%20be%20here%20for%20PLD" -X POST "$1"
+# Script to send a POST request and display the body of the response
+
+url="$1" # Get the URL from the first command line argument
+email="test@gmail.com"
+subject="I will always be here for PLD"
+
+curl -s -X POST "$url" -d "email=$email&subject=$subject"
