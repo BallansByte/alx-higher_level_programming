@@ -6,7 +6,7 @@
  * @param {Function} theFunction The callback function to call with the incremented number.
  */
 const addMeMaybe = (number, theFunction) => {
-    theFunction(number + 1);
+  theFunction(number + 1);
 };
 
 module.exports.addMeMaybe = addMeMaybe;
