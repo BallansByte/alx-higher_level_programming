@@ -1,4 +1,4 @@
---Listing all shows from hbtn_0d_tvshows_rate by their rating.
+-- Listing all shows from hbtn_0d_tvshows_rate by their rating.
 -- Records are ordered by descending rating.
 SELECT `title`, SUM(`rate`) AS `rating`
   FROM `tv_shows` AS t
