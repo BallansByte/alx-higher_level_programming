@@ -1,5 +1,3 @@
-
-base.py
 #!/usr/bin/python3
 
 """Defiing a base model class."""
