@@ -1,7 +1,18 @@
 #!/usr/bin/node
-
 const request = require('request');
 
-request(process.argv[2], function (_err, res) {
-  console.log('code:', res.statusCode); // Print the response status code if a response was received
+if (process.argv.length !== 3) {
+  console.error('Usage: node script.js <URL>');
+  process.exit(1);
+}
+
+const url = process.argv[2];
+
+request.get(url, (error, response) => {
+  if (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
+
+  console.log(`code: ${response.statusCode}`);
 });
